@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  observation_id: 1
+  species_id: 1
+  count: 1
+
+two:
+  observation_id: 1
+  species_id: 1
+  count: 1
