@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'csv'
+
+Species.delete_all
+
+table = CSV.table("db/NACC_list_species.csv")
+table.each do |row|
+  Species.create({
+    common_name: row[:common_name],
+    scientific_name: row[:species],
+    family: row[:family]
+  })
+end
