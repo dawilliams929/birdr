@@ -3,8 +3,10 @@ class Species < ActiveRecord::Base
   has_many :observations, through: :sightings
   
   validates :common_name, :scientific_name, :family, presence: true
-  validates :common_name, uniqueness: true, length: { minimum: 2, maximum: 100 }
-  validates :scientific_name, :uniquenes: true, length: { minimum: 5, maximum: 100 }
+  validates :common_name, uniqueness: true, length: { minimum: 2,
+                                                      maximum: 100 }
+  validates :scientific_name, :uniquenes: true, length: { minimum: 5,
+                                                          maximum: 100 }
   validate :family_ends_in_idae
   
   def genus
