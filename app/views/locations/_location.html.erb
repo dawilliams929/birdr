@@ -2,3 +2,5 @@
 
 <p>Lat: <%= location.latitude %></p>
 <p>Long: <%= location.longitude %></p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
