@@ -3,7 +3,7 @@
 	<%= f.collection_select :species_id, @species, :id, :common_name %>
 	<br>
 	<%= f.label :count %>
-	<%= f.number_field :count %>
+	<%= f.number_field :count, min: 0 %>
 	<br>
 	<%= f.label "observation id" %>
 	<%= f.number_field :observation_id %>
