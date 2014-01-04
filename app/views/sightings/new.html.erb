@@ -1,6 +1,6 @@
 <%= form_for @sighting do |f| %>
 	<%= f.label "Species" %>
-	<%= f.collection_select :species_id, @species, :id, :common_name %>
+	<%= f.collection_select :species_id, @species, :id, :to_s %>
 	<br>
 	<%= f.label :count %>
 	<%= f.number_field :count, min: 0 %>

@@ -11,6 +11,10 @@ class Species < ActiveRecord::Base
     scientific_name.split(" ").first
   end
   
+  def to_s
+    common_name + " (" + scientific_name + ")"
+  end
+  
   private
   
   def family_ends_in_idae
