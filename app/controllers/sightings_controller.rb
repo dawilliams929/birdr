@@ -21,10 +21,6 @@ class SightingsController < ApplicationController
     @sighting = Sighting.find(params[:id])
   end
   
-  def destroy
-    @sighting = Sighting.find(params[:id])
-  end
-  
   private
   
   def sighting_params
