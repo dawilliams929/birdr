@@ -1,0 +1,12 @@
+<%= form_for @sighting do |f| %>
+	<%= f.label "Species" %>
+	<%= f.collection_select :species_id, @species, :id, :common_name %>
+	<br>
+	<%= f.label :count %>
+	<%= f.number_field :count %>
+	<br>
+	<%= f.label "observation id" %>
+	<%= f.number_field :observation_id %>
+	<br>
+	<%= f.submit "Add sighting" %>
+<% end %>
