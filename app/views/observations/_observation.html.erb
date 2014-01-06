@@ -1,3 +1,3 @@
 <h2>Observed by User <%= @observation.user_id %> on <%= @observation.date.to_formatted_s(:long_ordinal) %></h2>
 
-<%= render @observation.sightings.sort! { |stg1, stg2| stg1.species_id <=> stg2.species_id } %>
+<%= render @observation.sightings.sort_by { |stg| stg.species_id } %>
