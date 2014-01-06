@@ -1,0 +1,3 @@
+<h2>Submitted by User <%= @observation.user_id %> on <%= @observation.date.to_formatted_s(:long_ordinal) %></h2>
+
+<%= render @observation.sightings %>

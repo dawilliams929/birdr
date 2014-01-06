@@ -1,11 +1,12 @@
 class ObservationsController < ApplicationController
   def new
     @observation = Observation.new
+    @locations = Location.all
   end
   
   def create
     @observation = Observation.new(observation_params)
-    if @obser vation.save
+    if @observation.save
       redirect_to @observation
     else
       render :new
