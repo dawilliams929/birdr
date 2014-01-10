@@ -1,3 +1,15 @@
-<h2>Observed by User <%= @observation.user_id %> on <%= @observation.date.to_formatted_s(:long_ordinal) %></h2>
+<h2>Observed by User <%= @observation.user_id %> on <%= @observation.date.to_formatted_s(:long_ordinal) %> at <%= @observation.location.name %></h2>
 
-<%= render @observation.sightings.sort_by { |stg| stg.species_id } %>
+<table border="1">
+	<tr>
+		<th>Species</th>
+		<th>Count</th>
+	</tr>
+	<% @observation.sightings.sort_by! { |stg| stg.species_id } %>
+	<% @observation.sightings.each do |sighting| %>
+	  <tr>
+	    <td><%= sighting.species.common_name %></td>
+		<td><%= sighting.count %></td>
+	  </tr>
+	<% end %>
+</table>

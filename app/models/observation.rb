@@ -3,6 +3,7 @@ class Observation < ActiveRecord::Base
   # belongs_to :user
   has_many :sightings
   has_many :species, through: :sightings
+  accepts_nested_attributes_for :sightings, allow_destroy: true
   
   validates :location_id, :user_id, numericality: { only_integer: true }, presence: true
   validates :date, presence: true
