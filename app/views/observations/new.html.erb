@@ -1,6 +1,6 @@
 <%= nested_form_for @observation do |f| %>	
   <%= f.label "Location" %>
-  <%= f.collection_select :location_id, Location.all, :id, :name %>
+  <%= f.collection_select :location_id, Location.order(:name), :id, :name %>
   <br>
   
   <%= f.label "Date and time" %>
