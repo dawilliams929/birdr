@@ -1,7 +1,7 @@
 class Observation < ActiveRecord::Base
   belongs_to :location
   # belongs_to :user
-  has_many :sightings
+  has_many :sightings, dependent: :destroy
   has_many :species, through: :sightings
   accepts_nested_attributes_for :sightings, allow_destroy: true
   

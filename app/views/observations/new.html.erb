@@ -7,8 +7,8 @@
   <%= f.collection_select :location_id, Location.all, :id, :name %>
   <br>
   
-  <%= f.label :date %>
-  <%= f.date_field :date %>
+  <%= f.label "Date and time" %>
+  <%= f.datetime_local_field :date %>
   <br>
 	
   <%= f.fields_for :sightings do |sighting_form| %>
