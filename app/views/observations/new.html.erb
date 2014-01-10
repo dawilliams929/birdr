@@ -1,8 +1,4 @@
 <%= nested_form_for @observation do |f| %>	
-  <%= f.label :user_id %>
-  <%= f.select :user_id, (1..10).to_a %>
-  <br>
-  
   <%= f.label "Location" %>
   <%= f.collection_select :location_id, Location.all, :id, :name %>
   <br>

@@ -1,6 +1,5 @@
 class Location < ActiveRecord::Base
   has_many :observations
-  has_many :users, through: :observations
   
   validates :name, :latitude, :longitude, presence: true
   validates :latitude, numericality: { greater_than: -90, less_than: 90 }

@@ -1,4 +1,4 @@
-<h2>Observed by User <%= @observation.user_id %> on <%= @observation.date.to_formatted_s(:long_ordinal) %> at <%= @observation.location.name %></h2>
+<h2>Observed by <%= @observation.user.email %> on <%= @observation.date.to_formatted_s(:long_ordinal) %> at <%= @observation.location.name %></h2>
 
 <table border="1">
   <tr>
