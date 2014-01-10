@@ -1,24 +1,26 @@
 <%= nested_form_for @observation do |f| %>	
-	<%= f.label :user_id %>
-	<%= f.select :user_id, (1..10).to_a %>
-	<br>
-	<%= f.label "Location" %>
-	<%= f.collection_select :location_id, Location.all, :id, :name %>
-	<br>
-	<%= f.label :date %>
-	<%= f.date_field :date %>
-	<br>
+  <%= f.label :user_id %>
+  <%= f.select :user_id, (1..10).to_a %>
+  <br>
+  
+  <%= f.label "Location" %>
+  <%= f.collection_select :location_id, Location.all, :id, :name %>
+  <br>
+  
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <br>
 	
-    <%= f.fields_for :sightings do |sighting_form| %>
-      <%= sighting_form.label "Species" %>
-  	  <%= sighting_form.collection_select :species_id, Species.all, :id, :to_s %>
+  <%= f.fields_for :sightings do |sighting_form| %>
+    <%= sighting_form.label "Species" %>
+  	<%= sighting_form.collection_select :species_id, Species.all, :id, :to_s %>
 	  	  
-  	  <%= sighting_form.label :count %>
-  	  <%= sighting_form.number_field :count %>
+  	<%= sighting_form.label :count %>
+  	<%= sighting_form.number_field :count %>
 	  
-  	  <%= sighting_form.link_to_remove "Remove this sighting" %>
-    <% end %>
-    <p><%= f.link_to_add "Add a sighting", :sightings %></p>
-		
-	<%= f.submit "Submit observation" %>
+  	<%= sighting_form.link_to_remove "Remove this sighting" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a sighting", :sightings %></p>
+  
+  <%= f.submit "Submit observation" %>
 <% end %>
