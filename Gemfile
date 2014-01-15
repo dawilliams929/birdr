@@ -7,6 +7,7 @@ gem 'rails', '4.0.1'
 gem 'sqlite3'
 gem 'nested_form'
 gem 'monban'
+gem 'mapbox-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

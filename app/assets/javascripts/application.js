@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery_nested_form
+//= require mapbox.js
 //= require_tree .
