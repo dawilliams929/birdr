@@ -37,7 +37,7 @@ class ObservationsController < ApplicationController
       :location_id,
       :user_id,
       :date,
-      sightings_attributes: [:id, :species_id, :count, :_destroy]
+      sightings_attributes: [:id, :species_id, :species_name, :count, :_destroy]
     )
   end
 end

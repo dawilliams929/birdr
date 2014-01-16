@@ -13,7 +13,7 @@ class Sighting < ActiveRecord::Base
   end
   
   def species_name=(name)
-    self.species = Species.where(common_name: name)
+    self.species = Species.find_by_common_name(name)
   end
     
 end
