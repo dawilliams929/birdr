@@ -13,7 +13,8 @@ class Sighting < ActiveRecord::Base
   end
   
   def species_name=(name)
-    self.species = Species.find_by_common_name(name)
+    common_name = name.match(/^.*?(?=\s\()/)[0]
+    self.species = Species.find_by_common_name(common_name)
   end
     
 end
