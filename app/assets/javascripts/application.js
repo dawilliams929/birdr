@@ -20,9 +20,7 @@
 
 
 $(document).on('nested:fieldAdded', function (event) {
-	var field = event.field;
-	console.log("added a field");
-  // $("input[id$='species_name']").autocompete({
-//     source: ["American Robin", "Lesser Goldfinch", "California Condor"]
-//   });
+  $("input[id$='species_name']").autocomplete({
+    source: ["American Robin", "Lesser Goldfinch", "California Condor"]
+  });
 });
