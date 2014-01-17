@@ -17,3 +17,12 @@
 //= require jquery_nested_form
 //= require mapbox.js
 //= require_tree .
+
+
+$(document).on('nested:fieldAdded', function (event) {
+	var field = event.field;
+	console.log("added a field");
+  // $("input[id$='species_name']").autocompete({
+//     source: ["American Robin", "Lesser Goldfinch", "California Condor"]
+//   });
+});
