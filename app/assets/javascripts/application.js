@@ -21,6 +21,6 @@
 
 $(document).on('nested:fieldAdded', function (event) {
   $("input[id$='species_name']").autocomplete({
-    source: ["American Robin", "Lesser Goldfinch", "California Condor"]
+    source: $("input[id$='species_name']").data('autocomplete-source')
   });
 });
