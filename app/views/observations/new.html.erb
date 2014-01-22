@@ -1,6 +1,6 @@
 <%= nested_form_for @observation do |f| %>	
-  <%= f.label "Location" %>
-  <%= f.collection_select :location_id, Location.order(:name), :id, :name %>
+  <%= f.label "Select a location" %>
+  <%= f.collection_select :location_id, Location.order(:name), :id, :name %> or <%= link_to "add a location", new_location_path%>
   <br>
   
   <%= f.label "Date and time" %>
@@ -9,7 +9,6 @@
 	
   <%= f.fields_for :sightings do |sighting_form| %>
     <%= sighting_form.label :species_name %>
-  	<!-- <%= sighting_form.collection_select :species_id, Species.all, :id, :to_s %> -->
 	<%= sighting_form.text_field :species_name, data: { autocomplete_source: species_index_path } %>
 	
 	  	  
