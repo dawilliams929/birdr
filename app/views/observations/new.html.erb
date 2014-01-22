@@ -14,7 +14,7 @@
 	
 	  	  
   	<%= sighting_form.label :count %>
-  	<%= sighting_form.number_field :count %>
+  	<%= sighting_form.number_field :count, min: 1 %>
 	  
   	<%= sighting_form.link_to_remove "Remove this sighting" %>
   <% end %>
