@@ -9,6 +9,10 @@ class Observation < ActiveRecord::Base
   validates :date, presence: true
   validate :date_cannot_be_in_future
   
+  def num_of_species
+    this.sightings.count
+  end
+  
   private
   
   def date_cannot_be_in_future
