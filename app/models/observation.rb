@@ -10,7 +10,7 @@ class Observation < ActiveRecord::Base
   validate :date_cannot_be_in_future
   
   def num_of_species
-    this.sightings.count
+    self.sightings.count
   end
   
   private

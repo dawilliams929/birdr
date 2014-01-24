@@ -15,6 +15,10 @@ class Species < ActiveRecord::Base
     common_name + " (" + scientific_name + ")"
   end
   
+  def is_a_lifer_for?(user)
+    user.needs?(self)
+  end
+  
   private
   
   def family_ends_in_idae
