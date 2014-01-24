@@ -1,7 +1,7 @@
 class SpeciesController < ApplicationController
   def index
     @species = Species.where(
-      "common_name LIKE ? OR scientific_name LIKE ?",
+      "common_name ILIKE ? OR scientific_name ILIKE ?",
       "%#{params[:term]}%",
       "%#{params[:term]}%"
     )
