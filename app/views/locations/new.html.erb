@@ -2,11 +2,39 @@
 	<%= f.label "Location name" %>
 	<%= f.text_field :name %>
 	<br>
-	<%= f.label :latitude %>
-	<%= f.text_field :latitude %>
-	<br>
-	<%= f.label :longitude %>
-	<%= f.text_field :longitude %>
-	<br>
+	<%= f.hidden_field :latitude %>
+	<%= f.hidden_field :longitude %>
+	
 	<%= f.submit %>
 <% end %>
+
+	<style>
+    html, body, #map-canvas {
+      height: 100%;
+      margin: 0px;
+      padding: 0px
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script>
+    function initialize() {
+      var mapOptions = {
+        zoom: 4,
+        center: new google.maps.LatLng(37, -122)
+      };
+
+      var map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+      google.maps.event.addListener(map, 'click', function(mouseEvent) {
+        var lat = mouseEvent.latLng.lat();
+        var lng = mouseEvent.latLng.lng();
+				
+				document.getElementById('location_latitude').value = lat;
+				document.getElementById('location_longitude').value = lng;
+      });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+	<div id="map-canvas"></div>
