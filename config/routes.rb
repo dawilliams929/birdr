@@ -6,5 +6,5 @@ Birdr::Application.routes.draw do
   resources :sightings, only: [:show, :index]
   resources :locations, only: [:create, :new, :show]
   resources :observations, only: [:create, :new, :show, :index]
-  resources :species, only: [:index]
+  resources :species, only: [:index, :show]
 end
