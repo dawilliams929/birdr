@@ -1,4 +1,17 @@
 <%= render @species %>
+
+<ul class="sightings">
+	<% @sightings.each do |s| %>
+		<li><%= s.count %> at <%= s.observation.location.name %> on <%= s.observation.date.to_formatted_s(:long_ordinal) %> by <%= s.observation.user.email%></li>
+	<% end %>
+</ul>
+
+<ul class="locations">
+	<% @locations.each do |l| %>
+		<li><%= l.latitude%>, <%= l.longitude %></li>
+	<% end %>
+</ul>
+
 <style>
 	html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
@@ -13,21 +26,35 @@
       mapTypeId: google.maps.MapTypeId.SATELLITE
   	};
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    setMarkers(map, sightings);
+    setMarkers(map);
   }
 	
-	var sightings = [[37, -122], [38, -122]]
-
-  function setMarkers(map, locations) {
-    for (var i = 0; i < locations.length; i++) {
-      var sighting = locations[i];
-      var latLng = new google.maps.LatLng(sighting[0], sighting[1]);
-
-      var marker = new google.maps.Marker({
-        position: latLng,
-        map: map
-      });
-    };
+  function setMarkers(map) {
+		$.getJSON("/species/1569.json", function (data) {
+			console.log(data.locations[0].latitude);
+			var lat = data.locations[0].latitude;
+			var lng = data.locations[0].longitude;
+			
+			var latLng = new google.maps.LatLng(lat, lng);
+			var marker = new google.maps.Marker({
+				position: latLng,
+				map: map
+			});
+			
+			// $.each(data, function (key, value) {
+// 				
+// 			});
+		});
+		
+    // for (var i = 0; i < locations.length; i++) {
+ //      var sighting = locations[i];
+ //      var latLng = new google.maps.LatLng(sighting[0], sighting[1]);
+ // 
+ //      var marker = new google.maps.Marker({
+ //        position: latLng,
+ //        map: map
+ //      });
+ //    };
  	}
 
   google.maps.event.addDomListener(window, 'load', initialize);
