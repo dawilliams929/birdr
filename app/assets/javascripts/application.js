@@ -15,9 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery_nested_form
-//= require mapbox.js
 //= require_tree .
-
 
 $(document).on('ready', function() {
 	$(document).on('nested:fieldAdded', function (event) {

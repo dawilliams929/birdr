@@ -7,7 +7,7 @@
   </tr>
   <% @observation.sightings.sort_by { |stg| stg.species_id }.each do |sighting| %>
     <tr>
-	  <td><%= sighting.species.common_name %></td>
+	  <td><%= link_to sighting.species.common_name, sighting.species %></td>
 	  <td><%= sighting.count %></td>
 	</tr>
   <% end %>
