@@ -22,9 +22,13 @@
   }
 	
   function setMarkers(map) {
+		var infoWindow = new google.maps.InfoWindow();
 		var jsonUrl = "/species/" + id + ".json";
 		$.getJSON(jsonUrl, function (data) {
+			var sightings = data.sightings;
+			var observations = data.observations;
 			var locations = data.locations;
+			var users = data.users;
 			$.each(locations, function(index, location) {
 				var lat = location.latitude;
 				var lng = location.longitude;
@@ -33,6 +37,12 @@
 				var marker = new google.maps.Marker({
 					position: latLng,
 					map: map
+				});
+				
+				google.maps.event.addListener(marker, 'click', function () {
+					var contentString = "<h3>" + location.name + "</h3><table><tr><th>DATE</th><th>#</th><th>OBSERVER</th></tr><tr><td>" + observations[index].date.substring(0, 10) + "</td><td>" + sightings[index].count + "</td><td>" + users[index].email + "</td></tr></table>";
+					infoWindow.setContent(contentString);
+					infoWindow.open(map, marker);
 				});
 			});		
 		});
