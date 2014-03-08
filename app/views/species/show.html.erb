@@ -1,5 +1,9 @@
 <%= render @species %>
 
+<%= javascript_tag do %>
+	var id = <%= params["id"] %>;
+<% end %>
+
 <style>
 	html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
@@ -9,7 +13,7 @@
 <script>
 	function initialize() {
   	var mapOptions = {
-    	zoom: 10,
+    	zoom: 9,
       center: new google.maps.LatLng(37.6, -122),
       mapTypeId: google.maps.MapTypeId.SATELLITE
   	};
@@ -17,12 +21,9 @@
     setMarkers(map);
   }
 	
-	
-	
   function setMarkers(map) {
-		// var markers = [];
-		//
-		$.getJSON("/species/1569.json", function (data) {
+		var jsonUrl = "/species/" + id + ".json";
+		$.getJSON(jsonUrl, function (data) {
 			var locations = data.locations;
 			$.each(locations, function(index, location) {
 				var lat = location.latitude;
