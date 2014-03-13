@@ -39,7 +39,7 @@
 				google.maps.event.addListener(marker, 'click', function () {
 					var rowDataString = "";
 					$.each(location.data, function (index, entry) {
-						rowDataString += "<tr><td>" + entry.date + "</td><td>" + entry.count + "</td><td>" + entry.user + "</td><td><a href='#'>" + "checklist" + "</a></td></tr>";
+						rowDataString += "<tr><td>" + entry.date + "</td><td>" + entry.count + "</td><td>" + entry.user + "</td><td><a href='/observations/" + entry.observation_id + "'>checklist</a></td></tr>";
 					});
 					var contentString = "<h3>" + location.name + "</h3><table><tr><th>DATE</th><th>#</th><th>OBSERVER</th></tr>" + rowDataString + "</table>";
 					infoWindow.setContent(contentString);
