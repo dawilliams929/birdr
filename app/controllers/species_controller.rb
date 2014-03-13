@@ -12,8 +12,7 @@ class SpeciesController < ApplicationController
     @species = Species.find(params[:id])
         
     sightings = @species.sightings
-    observations = sightings.map { |sighting| sighting.observation }
-    
+    observations = sightings.map(&:observation)
     locations = observations.map(&:location).uniq
     
     locations.map! do |location|
