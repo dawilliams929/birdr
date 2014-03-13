@@ -1,6 +1,10 @@
-<h2><%= location.name %></h2>
+<h2><%= @location.name %></h2>
+<p>Number of species seen here: <%= @location.num_of_species %></p>
 
-<p>Lat: <%= location.latitude %></p>
-<p>Long: <%= location.longitude %></p>
+<ul>
+	<% @location.species.each do |sp| %>
+		<li><%= link_to sp.to_s, sp %></li>
+	<% end %>
+</ul>
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
