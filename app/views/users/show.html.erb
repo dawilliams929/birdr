@@ -4,6 +4,6 @@
 <h2>Observations</h2>
 <ul>
 	<% @user.observations.each do |observation| %>
-		<li><%= link_to observation.date.to_date.to_s, observation %></li>
+		<li><%= link_to observation.date.to_date.to_formatted_s(:long), observation %></li>
 	<% end %>
 </ul>
