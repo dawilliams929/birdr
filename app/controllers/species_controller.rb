@@ -29,13 +29,17 @@ class SpeciesController < ApplicationController
       
       observations.each do |observation|
         if observation.location.id == location[:id]
-          ob = {
-            user: observation.user.email,
-            count: 0,
-            date: observation.date.to_date.to_s,
-            observation_id: observation.id
-          }
-          obs << ob
+          observation.sightings.each do |sighting|
+            if sighting.species_id == @species.id
+              ob = {
+                user: observation.user.email,
+                count: sighting.count,
+                date: observation.date.to_date.to_s,
+                observation_id: observation.id
+              }
+              obs << ob
+            end
+          end
         end
       end
       
