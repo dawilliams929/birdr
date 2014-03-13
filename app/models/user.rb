@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :observations
+  has_many :observations, order: 'date DESC'
   has_many :sightings, through: :observations
   
   def life_list
