@@ -1,5 +1,6 @@
 <h2>Observed by <%= link_to @observation.user.email, @observation.user %> on <%= @observation.date.to_formatted_s(:long_ordinal) %> at <%= link_to @observation.location.name, @observation.location %></h2>
 
+<p>Number of species: <%= @observation.num_of_species %></p>
 <table border="1">
   <tr>
     <th>Species</th>
