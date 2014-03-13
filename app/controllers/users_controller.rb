@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     sign_in(@user)
     respond_with @user, location: root_path
   end
+  
+  def show
+    @user = User.find(params[:id])
+  end
 
   private
 
