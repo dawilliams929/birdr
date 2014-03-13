@@ -16,7 +16,7 @@ class SpeciesController < ApplicationController
     
     locations = observations.map(&:location).uniq
     
-    locations = locations.map do |location|
+    locations.map! do |location|
       {
         name: location.name,
         lat: location.latitude,
@@ -25,34 +25,27 @@ class SpeciesController < ApplicationController
       }
     end
     
-    locations.each do |loc|
+    locations.each do |location|
       obs = []
+      
       observations.each do |observation|
-        if observation.location.id == loc[:id]
-          obs << { 
+        if observation.location.id == location[:id]
+          ob = {
             user: observation.user.email,
             count: 0,
             date: observation.date.to_date.to_s,
             observation_id: observation.id
           }
+          obs << ob
         end
       end
-      loc[:data] = obs
+      
+      location[:data] = obs.sort_by { |ob| ob[:date] }.reverse
     end
-    
     
     respond_to do |format|
       format.html
-      # format.json { render json: {
-    #     sightings: sightings,
-    #     observations: observations,
-    #     locations: locations,
-    #     users: users
-    #   }}
-    
-      format.json {
-        render json: locations
-      }
+      format.json { render json: locations }
     end
   end
 end
