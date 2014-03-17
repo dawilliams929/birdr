@@ -1,10 +1,27 @@
 <h2><%= @location.name %></h2>
 <p>Number of species seen here: <%= @location.num_of_species %></p>
 
+<p>Species seen here</p>
 <ul>
 	<% @location.species.each do |sp| %>
 		<li><%= link_to sp.to_s, sp %></li>
 	<% end %>
 </ul>
+
+<p>Most recent observations</p>
+<table border="1">
+	<tr>
+		<th>observer</th>
+		<th>date</th>
+		<th>number of species</th>
+	</tr>
+	<% @location.observations.each do |observation| %>
+		<tr>
+			<td><%= link_to observation.user.email, observation.user %></td>
+			<td><%= observation.date.to_date.to_s %></td>
+			<td><%= link_to observation.num_of_species, observation %></td>
+		</tr>
+	<% end %>
+</table>
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
