@@ -1,6 +1,8 @@
 <h2><%= @location.name %></h2>
 <p>Number of species seen here: <%= @location.num_of_species %></p>
 
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
+
 <p>Species seen here</p>
 <ul>
 	<% @location.species.each do |sp| %>
@@ -23,5 +25,3 @@
 		</tr>
 	<% end %>
 </table>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
