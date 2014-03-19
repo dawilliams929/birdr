@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  has_many :observations
+  has_many :observations, order: "date DESC"
   
   validates :name, :latitude, :longitude, presence: true
   validates :latitude, numericality: {
