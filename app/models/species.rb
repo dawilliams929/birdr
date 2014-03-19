@@ -12,7 +12,7 @@ class Species < ActiveRecord::Base
   end
   
   def to_s
-    common_name + " (" + scientific_name + ")"
+    (common_name + " (<em>" + scientific_name + "</em>)").html_safe
   end
   
   def is_a_lifer_for?(user)
