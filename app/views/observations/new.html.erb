@@ -9,7 +9,7 @@
 	
   <%= f.fields_for :sightings do |sighting_form| %>
     <%= sighting_form.label :species_name %>
-	<%= sighting_form.text_field :species_name, data: { autocomplete_source: species_index_path } %>
+		<%= sighting_form.text_field :species_name, data: { autocomplete_source: species_index_path } %>
 	
 	  	  
   	<%= sighting_form.label :count %>
