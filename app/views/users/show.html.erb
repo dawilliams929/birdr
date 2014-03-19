@@ -2,8 +2,18 @@
 <h2>Life List: <%= @user.life_list.count %></h2>
 
 <h2>Observations</h2>
-<ul>
+
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Location</th>
+		<th>Number of species</th>
+	</tr>
 	<% @user.observations.each do |observation| %>
-		<li><%= link_to observation.date.to_date.to_formatted_s(:long) + " at " + observation.location.name, observation %></li>
+		<tr>
+			<td><%= observation.date.to_date.to_s %></td>
+			<td><%= link_to observation.location.name, observation.location %></td>
+			<td><%= link_to observation.num_of_species, observation %></td>
+		</tr>
 	<% end %>
-</ul>
+</table>
