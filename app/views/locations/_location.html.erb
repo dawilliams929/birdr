@@ -4,9 +4,9 @@
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
 
 <p>Species seen here</p>
-<ul>
+<ul class="list-group">
 	<% @location.species.each do |sp| %>
-		<li><%= link_to sp.to_s, sp %></li>
+		<li class="list-group-item"><%= link_to sp.to_s, sp %></li>
 	<% end %>
 </ul>
 
