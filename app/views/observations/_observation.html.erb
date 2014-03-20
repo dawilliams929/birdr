@@ -8,7 +8,7 @@
   </tr>
   <% @observation.sightings.each do |sighting| %>
     <tr>
-	  <td><%= link_to sighting.species.to_s, sighting.species %></td>
+	  <td><%= link_to sighting.species.to_html, sighting.species %></td>
 	  <td><%= sighting.count %></td>
 	</tr>
   <% end %>

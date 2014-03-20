@@ -6,7 +6,7 @@
 <p>Species seen here</p>
 <ul class="list-group">
 	<% @location.species.each do |sp| %>
-		<li class="list-group-item"><%= link_to sp.to_s, sp %></li>
+		<li class="list-group-item"><%= link_to sp.to_html, sp %></li>
 	<% end %>
 </ul>
 
