@@ -1,14 +1,14 @@
 function initialize() {
 	var mapOptions = {
-  	zoom: 9,
-    center: new google.maps.LatLng(37.6, -122),
-    mapTypeId: google.maps.MapTypeId.SATELLITE
+    // mapTypeId: google.maps.MapTypeId.SATELLITE
 	};
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  setMarkers(map);
+	var bounds = new google.maps.LatLngBounds();
+  setMarkers(map, bounds);
+	map.fitBounds(bounds);
 }
 
-function setMarkers(map) {
+function setMarkers(map, bounds) {
 	var infoWindow = new google.maps.InfoWindow();
 	var jsonUrl = "/species/" + id + ".json";
 	
@@ -22,6 +22,8 @@ function setMarkers(map) {
 				position: latLng,
 				map: map
 			});
+			
+			bounds.extend(marker.position);
 			
 			google.maps.event.addListener(marker, 'click', function () {
 				var rowDataString = "";
