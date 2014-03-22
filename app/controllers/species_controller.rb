@@ -1,7 +1,7 @@
 class SpeciesController < ApplicationController
   def index
     @species = Species.where(
-      "common_name ILIKE ? OR scientific_name ILIKE ?",
+      "common_name LIKE ? OR scientific_name LIKE ?",
       "%#{params[:term]}%",
       "%#{params[:term]}%"
     ) # change LIKE to ILIKE for postgres for heroku
