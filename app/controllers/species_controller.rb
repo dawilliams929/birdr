@@ -9,7 +9,7 @@ class SpeciesController < ApplicationController
   end
   
   def show
-    @species = Species.find(params[:id])
+    @species = Species.friendly.find(params[:id])
         
     sightings = @species.sightings
     observations = sightings.map(&:observation)

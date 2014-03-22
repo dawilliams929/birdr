@@ -1,4 +1,7 @@
 class Species < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :common_name, use: :slugged
+  
   has_many :sightings
   has_many :observations, through: :sightings
   
@@ -6,6 +9,10 @@ class Species < ActiveRecord::Base
   validates :common_name, uniqueness: true, length: { maximum: 100 }
   validates :scientific_name, uniqueness: true, length: { maximum: 100 }
   validate :family_ends_in_idae
+  
+  def normalize_friendly_id(string)
+    string.split.join("_")
+  end
   
   def genus
     scientific_name.split(" ").first

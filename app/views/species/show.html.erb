@@ -1,7 +1,7 @@
 <%= render @species %>
 
 <%= javascript_tag do %>
-	var id = <%= params["id"] %>;
+	var id = <%= params["id"] %>.toString();
 <% end %>  <!-- this seems kinda weird to do -->
 
 <style>

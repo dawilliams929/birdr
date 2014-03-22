@@ -16,6 +16,7 @@ end
 gem 'nested_form'
 gem 'monban'
 gem 'mapbox-rails'
+gem 'friendly_id'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
