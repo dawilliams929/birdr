@@ -1,11 +1,13 @@
 function initialize() {
 	var mapOptions = {
-    // mapTypeId: google.maps.MapTypeId.SATELLITE
+  	zoom: 9,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
 	};
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	var bounds = new google.maps.LatLngBounds();
   setMarkers(map, bounds);
 	map.fitBounds(bounds);
+	console.log(bounds.isEmpty());
 }
 
 function createMarker(location, map) {
@@ -26,6 +28,7 @@ function setMarkers(map, bounds) {
 	$.getJSON(jsonUrl, function (locations) {
 		$.each(locations, function (index, location) {
 			var marker = createMarker(location, map);
+			
 			bounds.extend(marker.position);
 			
 			google.maps.event.addListener(marker, 'click', function () {
