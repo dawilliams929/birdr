@@ -1,20 +1,31 @@
 <h1><%= @user.email %></h1>
-<h2><small>Life List: <%= @user.life_list.count %> species</small></h2>
 
-<h3>Observations</h3>
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed">
-	<tr>
-		<th>Date</th>
-		<th>Location</th>
-		<th>Number of species</th>
-	</tr>
-	<% @user.observations.each do |observation| %>
-		<tr>
-			<td><%= observation.date.to_date.to_s %></td>
-			<td><%= link_to observation.location.name, observation.location %></td>
-			<td><%= link_to observation.num_of_species, observation %></td>
-		</tr>
-	<% end %>
-</table>
+<div class="row">
+	<div class="col-md-4">
+		<h2><small>Life List: <%= @user.life_list.count %> species</small></h2>
+		<ul class="list-group">
+			<% @user.life_list.each do |species| %>
+				<li class="list-group-item"><%= link_to species.to_html, species %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="col-md-8">
+		<h2><small>Observations</small></h2>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-condensed">
+				<tr>
+					<th>Date</th>
+					<th>Location</th>
+					<th>Number of species</th>
+				</tr>
+				<% @user.observations.each do |observation| %>
+					<tr>
+						<td><%= observation.date.to_date.to_s %></td>
+						<td><%= link_to observation.location.name, observation.location %></td>
+						<td><%= link_to observation.num_of_species, observation %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
 </div>
