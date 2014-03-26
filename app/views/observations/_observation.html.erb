@@ -2,8 +2,8 @@
 	<div class="col-md-4">
 		<h2>Observed by <%= link_to @observation.user.email, @observation.user %> on <%= @observation.date.to_formatted_s(:long_ordinal) %> at <%= link_to @observation.location.name, @observation.location %></h2>
 	</div>
-	<div class="col-md-8">
-		<p>Number of species: <%= @observation.num_of_species %></p>
+	<div class="col-md-6 col-md-offset-2">
+		<h3><small>Number of species: <%= @observation.num_of_species %></small></h3>
 		<div class="table-responsive">
 			<table class="table table-striped table-condensed">  <tr>
 			    <th>Species</th>
