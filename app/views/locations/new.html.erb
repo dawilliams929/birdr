@@ -1,17 +1,19 @@
-<p class="instructions">Place a marker on the map at the location's location.</p>
+<p class="instructions">Place a marker on the map at the location.</p>
 <%= form_for @location do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.hidden_field :latitude %>
-	<%= f.hidden_field :longitude %>
+	<div class="form-group col-md-4">
+		<%= f.label :name %>
+		<%= f.text_field :name, placeholder: "Enter the location's name", class: "form-control" %><br>
+		<%= f.hidden_field :latitude %>
+		<%= f.hidden_field :longitude %>
 	
-	<%= f.submit class: "btn btn-default" %>
+		<%= f.submit class: "btn btn-default" %>
+	</div>
 <% end %>
 <style>
 	html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
 	.container { height: 100% }
-  #map-canvas { height: 400px; width: 600px; }
+  #map-canvas { height: 400px; width: 600px }
 </style>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLWvfKjdHTctsb3rmEK7d7GMbzeV8WsuI&sensor=false"></script>
 <script>

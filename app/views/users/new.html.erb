@@ -1,13 +1,11 @@
 <%= form_for @user do |form| %>
-	<div>
+	<div class="form-group col-md-4">
     <%= form.label :email %>
-    <%= form.email_field :email %><br>
-	</div>
-	<div>
+    <%= form.email_field :email, class: "form-control", placeholder: "Email" %><br>
+
     <%= form.label :password %>
-    <%= form.password_field :password %><br>
-	</div>
-	<div>
+    <%= form.password_field :password, class: "form-control", placeholder: "Password" %><br>
+
     <%= form.submit "Sign up", class: "btn btn-default" %>
 	</div>
 <% end %>

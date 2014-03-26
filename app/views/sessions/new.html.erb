@@ -1,13 +1,11 @@
 <%= form_for :session, url: session_path do |form| %>
-  <div>
+  <div class="form-group col-md-4">
     <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-  <div>
+    <%= form.email_field :email, class: "form-control", placeholder: "Email" %><br>
+
     <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <div>
+    <%= form.password_field :password, class: "form-control", placeholder: "Password" %><br>
+		
     <%= form.submit "Sign in", class: "btn btn-default" %>
   </div>
 <% end %>
