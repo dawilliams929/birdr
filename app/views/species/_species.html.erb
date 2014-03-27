@@ -1,2 +1,8 @@
-<h1><%= @species.to_html %></h1>
-<h2>Family <%= @species.family %></h2>
+<div class="row">
+	<div class="col-md-9">
+		<h1><%= @species.to_html %></h1>
+	</div>
+	<div class="col-md-3">
+		<h1><small><%= @species.family.upcase %></small></h1>
+	</div>
+</div>

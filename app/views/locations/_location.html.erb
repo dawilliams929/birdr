@@ -1,27 +1,37 @@
-<h2><%= @location.name %></h2>
-<p>Number of species seen here: <%= @location.num_of_species %></p>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}" %>
-
-<p>Species seen here</p>
-<ul class="list-group">
-	<% @location.species.each do |sp| %>
-		<li class="list-group-item"><%= link_to sp.to_html, sp %></li>
-	<% end %>
-</ul>
-
-<p>Most recent observations</p>
-<table border="1">
-	<tr>
-		<th>observer</th>
-		<th>date</th>
-		<th>number of species</th>
-	</tr>
-	<% @location.observations.each do |observation| %>
-		<tr>
-			<td><%= link_to observation.user.email, observation.user %></td>
-			<td><%= observation.date.to_date.to_s %></td>
-			<td><%= link_to observation.num_of_species, observation %></td>
-		</tr>
-	<% end %>
-</table>
+<div class="row">
+	<div class="col-md-4">
+		<h2><%= @location.name %></h2>
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=12&markers=#{location.latitude}%2C#{location.longitude}", width: "100%", height: "auto" %>
+	</div>
+	<div class="col-md-4">
+		<h3><small>Number of species seen here: <%= @location.num_of_species %></small></h3>
+		<ul class="list-group">
+			<% @location.species.each do |sp| %>
+				<li class="list-group-item"><%= link_to sp.to_html, sp %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="col-md-4">
+		<h3><small>Most recent observations</small></h3>
+		<div class="table-responsive">
+			<table class="table table-striped table-condensed">
+				<thead>
+					<tr>
+						<th>Observer</th>
+						<th>Date</th>
+						<th>Number of species</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @location.observations.each do |observation| %>
+						<tr>
+							<td><%= link_to observation.user.email, observation.user %></td>
+							<td><%= observation.date.to_date.to_s %></td>
+							<td><%= link_to observation.num_of_species, observation %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
