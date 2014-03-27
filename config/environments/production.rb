@@ -61,6 +61,7 @@ Birdr::Application.configure do
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   config.assets.precompile += %w( newLocation.js )
   config.assets.precompile += %w( showSpecies.js )
+  config.assets.precompile += %w( newSighting.js )
   
 
   # Ignore bad email addresses and do not raise email delivery errors.
