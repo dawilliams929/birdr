@@ -16,7 +16,6 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require jquery_nested_form
-//= require_tree .
 
 $(document).on('ready', function() {
 	$(document).on('nested:fieldAdded', function (event) {

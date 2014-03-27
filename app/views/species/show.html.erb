@@ -2,13 +2,7 @@
 
 <%= javascript_tag do %>
 	var id = <%= params["id"] %>;
-<% end %>  <!-- this seems kinda weird to do -->
-
-<style>
-	html { height: 100% }
-  body { height: 100%; margin: 0; padding: 0 }
-	.container { height: 100% }
-  #map-canvas { height: 100% }
-</style>
+<% end %>
+<%= javascript_include_tag "showSpecies.js" %>
 
 <div id="map-canvas"></div>
