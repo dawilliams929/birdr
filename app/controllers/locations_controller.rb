@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      redirect_to @location
+      redirect_to new_observation_path
     else
       render :new
     end
